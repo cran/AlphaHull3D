@@ -1,0 +1,14 @@
+f12d41ae3619154444587deedd8220b9 *DESCRIPTION
+09712a808703c96b922688ff2b0e3fe9 *NAMESPACE
+916a8e901ffb57a2554e9fa0dc990993 *NEWS.md
+3583817108aa0ff0936bb23e035d604d *R/FAS.R
+0612eca985db3cdb26a0d4a92c94668e *R/RcppExports.R
+c9ab868a6ba2c02e31a871958424b16a *README.md
+f3eed5a59dcac9b0fba8055bb8c27540 *cleanup
+f747450d49f5afd816115acc49b542e3 *configure
+e937b8faeefb933652178b8c2e2e0a7f *man/ahull3d.Rd
+ae06c59157969b0e37eec628cb28b3db *src/Makevars.in
+686661defc5782ae8418a83e90327835 *src/Makevars.win
+37751636eceb1f0194d7ffee3fbe1813 *src/RcppExports.cpp
+3d98b0f4246d742f5b4fe349fcd0f598 *src/alphahull3d.cpp
+5b2088ccf2b8a20bd78d14e1ad389f4e *src/alphahull3d.h
