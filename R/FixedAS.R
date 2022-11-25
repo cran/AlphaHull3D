@@ -1,10 +1,5 @@
-#' @useDynLib AlphaHull3D, .registration=TRUE
-#' @importFrom Rcpp evalCpp
-NULL
-
-
-#' 3D alpha hull
-#' @description Computes the alpha hull of a set of points.
+#' 3D alpha hull for a given alpha
+#' @description Computes the alpha hull of a set of points for a given alpha.
 #'
 #' @param points the points given as a matrix with three columns
 #' @param alpha positive number
@@ -15,8 +10,9 @@ NULL
 #'   \code{volume = TRUE}.
 #' @export
 #' 
-#' @importFrom rgl tmesh3d
-#' @importFrom Rvcg vcgClean
+#' @note If you want to compute the alpha hull for several values of alpha, 
+#'   then instead of using this function you can use the 
+#'   \code{\link{fullAhull3d}} and the \code{\link{setAlpha}} functions.
 #' 
 #' @examples
 #' library(AlphaHull3D)
@@ -33,21 +29,13 @@ NULL
 ahull3d <- function(points, alpha, volume = FALSE) {
   stopifnot(is.matrix(points))
   stopifnot(ncol(points) == 3L)
-  stopifnot(alpha >= 0)
-  vertices  <- FAS_cpp(t(points), alpha, volume)
-  nvertices <- ncol(vertices)
-  if(nvertices == 0L) {
-    message("The alpha-shape is empty.")
+  stopifnot(isNonNegativeNumber(alpha))
+  stopifnot(isBoolean(volume))
+  vertices <- FAS_cpp(t(points), alpha, volume)
+  mesh <- makeMesh(vertices)
+  if(is.null(mesh)) {
     return(invisible(NULL))
   }
-  mesh0 <- tmesh3d(
-    vertices    = vertices,
-    indices     = matrix(1L:nvertices, nrow = 3L),
-    homogeneous = FALSE
-  )
-  mesh <- vcgClean(mesh0, sel = c(0L, 7L), silent = TRUE)
-  mesh[["remvert"]] <- NULL
-  mesh[["remface"]] <- NULL
   if(volume) {
     attr(mesh, "volume") <- attr(vertices, "volume")
   }

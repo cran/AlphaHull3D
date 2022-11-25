@@ -5,3 +5,19 @@ FAS_cpp <- function(pts, alpha, volume) {
     .Call(`_AlphaHull3D_FAS_cpp`, pts, alpha, volume)
 }
 
+AS_cpp <- function(pts) {
+    .Call(`_AlphaHull3D_AS_cpp`, pts)
+}
+
+optimalAS_cpp <- function(as_xptr, nc) {
+    .Call(`_AlphaHull3D_optimalAS_cpp`, as_xptr, nc)
+}
+
+solidAS_cpp <- function(as_xptr) {
+    .Call(`_AlphaHull3D_solidAS_cpp`, as_xptr)
+}
+
+setAlpha_cpp <- function(as_xptr, alpha) {
+    .Call(`_AlphaHull3D_setAlpha_cpp`, as_xptr, alpha)
+}
+

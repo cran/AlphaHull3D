@@ -1,7 +1,7 @@
 Type: Package
 Package: AlphaHull3D
 Title: Alpha Hull Computation
-Version: 1.1.0
+Version: 2.0.0
 Authors@R: person("Stéphane", "Laurent", email = "laurent_step@outlook.fr", role = c("aut", "cre"))
 Maintainer: Stéphane Laurent <laurent_step@outlook.fr>
 Description: Computation of the alpha hull of a set of points in the 3D
@@ -19,9 +19,11 @@ Encoding: UTF-8
 RoxygenNote: 7.2.1
 URL: https://github.com/stla/AlphaHull3D
 BugReports: https://github.com/stla/AlphaHull3D/issues
-SystemRequirements: C++ 14, gmp, mpfr
+SystemRequirements: C++ 17, gmp, mpfr
+Depends: R (>= 2.10)
+LazyData: true
 NeedsCompilation: yes
-Packaged: 2022-10-24 12:17:19 UTC; stla
+Packaged: 2022-11-25 08:29:23 UTC; stla
 Author: Stéphane Laurent [aut, cre]
 Repository: CRAN
-Date/Publication: 2022-10-24 13:27:59 UTC
+Date/Publication: 2022-11-25 09:00:02 UTC
